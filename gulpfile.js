@@ -18,6 +18,12 @@ var del = require("del");
 var run = require("run-sequence");
 var browserSync = require("browser-sync");
 var server = browserSync.create();
+var ghPages = require('gulp-gh-pages');
+
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+      .pipe(ghPages());
+});
 
 gulp.task("style", function () {
   return gulp
